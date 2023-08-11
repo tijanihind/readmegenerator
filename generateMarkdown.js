@@ -1,97 +1,65 @@
 // function to generate markdown for README
+const licenses = {
+  'MIT': '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)',
+  'Apache 2.0': '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)',
+  'ISC': '[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)',
+  'GPL v3.0': '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)',
+  'BSD 3-Clause': '[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)',
+};
+
 function generateMarkdown(data) {
-    return `
+  return `
     
   # ${data.title}
-  
-    ${data.description}
-  
-    ${data.licenseBadge}
-  
-    [A deployed version can be viewed here.](${data.URL})
-    
+
   ---
   ## Contents
+
+  1. [Desciption](##description)
+  2. [Installation](##installation)
+  3. [License](##license)
+  4. [Contributing](##contributing)
+  5. [Tests](##tests)
+  6. [Questions](##questions)
   
-  1. [About](#about)
-      1. [User Story](#user%20story)
-      2. [Acceptance criteria](#acceptance%20criteria)
-      3. [Visuals](#visuals)
-      4. [Build](#build)
-  2. [Installation](#installation)
-  3. [License](#license)
-  4. [Contributing](#contributing)
-  5. [Tests](#tests)
-  6. [Authors and acknowledgment](#authors%20and%20acknowledgment)
-  
-  ---
-  ## About
-  
-    ${data.about}
-  
-  ---
-  
-  ## User Story
-    
-  
-  ---
-  
-  ## Acceptance Criteria
-    
-    
-  ---
-  ## Visuals:
-  
-    ![]()
+  ## Description
+
+    ${data.description}
   
   ---
   
   ## Installation:
+
     ${data.installation}
-  
-    To clone the repo:
-    
-        git clone ${data.clone}
     
   ---
   
   ## License
-    License used for this project - ${data.license}
-    * For more information on license types, please reference this website
-    for additional licensing information - [https: //choosealicense.com/](https://choosealicense.com/).
+    License used for this project - ${licenses[data.license]}
   
   ---
   
   ## Contributing:
     
-    To contribute to this application, create a pull request.
-    Here are the steps needed for doing that:
-    - Fork the repo
-    - Create a feature branch (git checkout -b NAME-HERE)
-    - Commit your new feature (git commit -m 'Add some feature')
-    - Push your branch (git push)
-    - Create a new Pull Request
-  
-    Following a code review, your feature will be merged.
-  
+    ${data.contributing}
   
   ---
   
   ## Tests:
+
     ${data.test}
   
   ---
   
-  ## Authors and Acknowledgments
-    ${data.author}
+  ## Questions: 
+
+    Please feel free to contact me on my GitHub for further information:
+    [https://www.github.com/${data.github}]
+    Email: ${data.email}
   
   ---
-  
-  ## Contact Information:
-  * GitHub Username: ${data.userName}
-  * GitHub Email: ${data.userEmail}
     
   `;
-  }
-  
-  module.exports = generateMarkdown;
+}
+
+module.exports = generateMarkdown;
